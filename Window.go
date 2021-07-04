@@ -13,7 +13,7 @@ type window struct {
 	_cfg         pixelgl.WindowConfig
 	win          *pixelgl.Window
 	sprite1      Sprite
-	scenes       [20]*EmptyScene
+	scenes       [20]Scene
 	currentScene int
 	deltaTime    float64
 	last         time.Time
@@ -38,7 +38,7 @@ func (win *window) init() {
 
 	es := EmptyScene{}
 	win.scenes[0] = &es
-	win.scenes[0].init()
+	es.init()
 	win.currentScene = 0
 }
 
@@ -52,7 +52,7 @@ func (win *window) render() {
 	for i, s := range win.scenes {
 		if i == win.currentScene {
 			if s != nil {
-				(*s).draw(win.win)
+				(s).draw(win.win)
 			}
 		}
 	}
@@ -64,7 +64,7 @@ func (win *window) update() {
 	for i, s := range win.scenes {
 		if i == win.currentScene {
 			if s != nil {
-				(*s).update(win.deltaTime)
+				(s).update(win.deltaTime)
 			}
 		}
 	}
