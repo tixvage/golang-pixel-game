@@ -3,7 +3,7 @@ pixel library.
 
 https://github.com/faiface/pixel/
 
-u can from this link for learn how to use pixel library
+u can look this link for learn how to use pixel library
 
 i did it because of test my knowledge about golang
 
