@@ -6,6 +6,7 @@ import (
 )
 
 type EmptyScene struct {
+	scenes  *[20]Scene
 	sprite1 Sprite
 }
 

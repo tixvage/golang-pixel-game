@@ -10,8 +10,8 @@ type Scene interface {
 	getQuit() bool
 }
 
-func changeScene(scene *Scene, scenes *[]*Scene, currentScene int) {
-	(*scenes)[currentScene+1] = scene
+func changeScene(scene *Scene, scenes *[20]Scene, currentScene int) {
+	(*scenes)[currentScene+1] = *scene
 	(*scenes)[currentScene] = nil
 
 	currentScene++

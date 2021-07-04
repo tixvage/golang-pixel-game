@@ -38,6 +38,7 @@ func (win *window) init() {
 
 	es := EmptyScene{}
 	win.scenes[0] = &es
+	es.scenes = &win.scenes
 	es.init()
 	win.currentScene = 0
 }
