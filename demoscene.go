@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/faiface/pixel/pixelgl"
 )
 
@@ -21,8 +20,8 @@ func (es *demoscene) init() {
 }
 
 func (es *demoscene) draw(win *pixelgl.Window) {
-	fmt.Println("bruh")
+
 }
 func (es *demoscene) update(deltaTime float64, win *pixelgl.Window) {
-	fmt.Println(deltaTime)
+
 }

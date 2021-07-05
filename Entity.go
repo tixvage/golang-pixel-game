@@ -12,3 +12,8 @@ type Entity interface {
 type EntityObj struct {
 	position pixel.Vec
 }
+
+func (e *EntityObj) move(x, y float64) {
+	e.position.Y += y
+	e.position.X += x
+}

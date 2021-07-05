@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/faiface/pixel"
+	"fmt"
 	"github.com/faiface/pixel/pixelgl"
 )
 
@@ -22,7 +22,6 @@ func (es *EmptyScene) getQuit() bool {
 func (es *EmptyScene) init() {
 	es.sprite1 = createSprite("texture1.png")
 	es.sprite1.create()
-	es.sprite1.position = pixel.ZV
 }
 
 func (es *EmptyScene) draw(win *pixelgl.Window) {
@@ -32,5 +31,9 @@ func (es *EmptyScene) update(deltaTime float64, win *pixelgl.Window) {
 	if win.JustPressed(pixelgl.KeyEnter) {
 		d := demoscene{}
 		changeScene(&d, es.scenes, es.currentScene)
+	}
+	if win.Pressed(pixelgl.KeyUp) {
+		es.sprite1.move(0, 20)
+		fmt.Println(es.sprite1.position)
 	}
 }

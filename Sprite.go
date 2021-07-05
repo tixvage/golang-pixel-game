@@ -19,7 +19,7 @@ func (spr *Sprite) create() {
 }
 
 func (spr *Sprite) draw(win *pixelgl.Window) {
-	spr.sprite.Draw(win, pixel.IM)
+	spr.sprite.Draw(win, pixel.IM.Scaled(spr.position, 0.9))
 }
 
 func createSprite(path string) Sprite {
@@ -27,7 +27,7 @@ func createSprite(path string) Sprite {
 	if err != nil {
 		panic(err)
 	}
-	spr := Sprite{EntityObj{}, pix, nil}
+	spr := Sprite{EntityObj: EntityObj{position: pixel.Vec{X: 200, Y: 20}}, picture: pix}
 	return spr
 }
 
