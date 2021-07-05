@@ -9,6 +9,7 @@ import (
 )
 
 type Sprite struct {
+	EntityObj
 	picture pixel.Picture
 	sprite  *pixel.Sprite
 }
@@ -26,7 +27,7 @@ func createSprite(path string) Sprite {
 	if err != nil {
 		panic(err)
 	}
-	spr := Sprite{pix, nil}
+	spr := Sprite{EntityObj{}, pix, nil}
 	return spr
 }
 

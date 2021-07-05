@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/pixelgl"
 	"image/color"
@@ -39,6 +38,7 @@ func (win *window) init() {
 	es := EmptyScene{}
 	win.scenes[0] = &es
 	es.scenes = &win.scenes
+	es.currentScene = &win.currentScene
 	es.init()
 	win.currentScene = 0
 }
@@ -60,12 +60,10 @@ func (win *window) render() {
 }
 
 func (win *window) update() {
-	fmt.Println(int(1 / win.deltaTime))
-
 	for i, s := range win.scenes {
 		if i == win.currentScene {
 			if s != nil {
-				(s).update(win.deltaTime)
+				(s).update(win.deltaTime, win.win)
 			}
 		}
 	}
